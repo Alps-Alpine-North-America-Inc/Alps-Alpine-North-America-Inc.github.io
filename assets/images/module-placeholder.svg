@@ -1,0 +1,22 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" rx="40" fill="url(#bg)"/>
+  <rect x="136" y="126" width="368" height="388" rx="34" fill="rgba(255,255,255,0.84)" stroke="rgba(255,255,255,0.96)" stroke-width="10"/>
+  <rect x="192" y="180" width="256" height="164" rx="22" fill="url(#chip)"/>
+  <path d="M220 398H420" stroke="#003399" stroke-width="12" stroke-linecap="round"/>
+  <path d="M220 444H390" stroke="#6D97F6" stroke-width="12" stroke-linecap="round"/>
+  <path d="M320 64V126" stroke="#003399" stroke-width="14" stroke-linecap="round"/>
+  <path d="M320 514V576" stroke="#003399" stroke-width="14" stroke-linecap="round"/>
+  <path d="M64 320H126" stroke="#003399" stroke-width="14" stroke-linecap="round"/>
+  <path d="M514 320H576" stroke="#003399" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="320" cy="262" r="40" fill="#D9E8FF"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EBF2FF"/>
+      <stop offset="1" stop-color="#BFD7FF"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="192" y1="180" x2="448" y2="344" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#003399"/>
+      <stop offset="1" stop-color="#5E96FF"/>
+    </linearGradient>
+  </defs>
+</svg>

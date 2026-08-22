@@ -1,0 +1,59 @@
+<svg width="640" height="420" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" rx="42" fill="url(#bg)"/>
+  <path d="M-14 122C106 58 246 42 408 72C508 90 574 118 654 160" stroke="rgba(255,255,255,0.4)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="430" cy="124" r="98" fill="url(#globe)" opacity="0.92"/>
+  <g stroke="rgba(255,255,255,0.68)" stroke-width="3">
+    <path d="M346 124H514"/>
+    <path d="M430 38C458 60 476 90 476 124C476 158 458 188 430 210"/>
+    <path d="M430 38C402 60 384 90 384 124C384 158 402 188 430 210"/>
+    <path d="M360 86C384 102 408 110 430 110C452 110 476 102 500 86"/>
+    <path d="M360 162C384 146 408 138 430 138C452 138 476 146 500 162"/>
+  </g>
+  <g fill="rgba(255,255,255,0.86)">
+    <circle cx="316" cy="90" r="9"/>
+    <circle cx="548" cy="116" r="9"/>
+    <circle cx="500" cy="206" r="9"/>
+    <circle cx="348" cy="200" r="9"/>
+  </g>
+  <g stroke="rgba(255,255,255,0.68)" stroke-width="3">
+    <path d="M316 90L430 124L548 116"/>
+    <path d="M430 124L500 206"/>
+    <path d="M430 124L348 200"/>
+  </g>
+  <path d="M0 318C92 280 180 258 270 254C386 248 490 282 640 344V420H0V318Z" fill="url(#ground)" opacity="0.88"/>
+  <g transform="translate(150 212)" fill="#173A84">
+    <ellipse cx="36" cy="106" rx="28" ry="10" fill="rgba(23,58,132,0.18)"/>
+    <circle cx="36" cy="26" r="18"/>
+    <path d="M20 52C24 40 48 40 52 52L60 96H12L20 52Z"/>
+  </g>
+  <g transform="translate(238 206)" fill="#224A9E">
+    <ellipse cx="38" cy="112" rx="30" ry="10" fill="rgba(23,58,132,0.18)"/>
+    <circle cx="38" cy="24" r="18"/>
+    <path d="M18 56C24 42 52 42 58 56L66 102H10L18 56Z"/>
+    <rect x="28" y="62" width="22" height="28" rx="6" fill="#DDE8FF"/>
+  </g>
+  <g transform="translate(332 214)" fill="#1B428F">
+    <ellipse cx="36" cy="104" rx="28" ry="10" fill="rgba(23,58,132,0.18)"/>
+    <circle cx="36" cy="24" r="18"/>
+    <path d="M20 54C24 40 48 40 52 54L60 96H12L20 54Z"/>
+  </g>
+  <g transform="translate(104 82)">
+    <rect width="126" height="76" rx="22" fill="rgba(255,255,255,0.72)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+    <path d="M26 46C34 30 52 24 66 24C84 24 100 36 102 54" stroke="#2454B0" stroke-width="8" stroke-linecap="round"/>
+    <path d="M34 58H92" stroke="#7EA9FF" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="28" y1="22" x2="614" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E6F0FF"/>
+      <stop offset="1" stop-color="#91B4F6"/>
+    </linearGradient>
+    <radialGradient id="globe" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(430 124) rotate(90) scale(98)">
+      <stop stop-color="rgba(255,255,255,0.98)"/>
+      <stop offset="1" stop-color="#7FA8F5"/>
+    </radialGradient>
+    <linearGradient id="ground" x1="320" y1="254" x2="320" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="rgba(255,255,255,0.08)"/>
+      <stop offset="1" stop-color="rgba(31,78,171,0.2)"/>
+    </linearGradient>
+  </defs>
+</svg>

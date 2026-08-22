@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Getting Started - Dual Switching Magnetic Sensor Board (Qwiic) | Alps Alpine Development Hub
+      
+    </title>
+    <meta
+      name="description"
+      content="Placeholder getting-started page for the Dual Switching Magnetic Sensor Board."
+    >
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/code-copy.js" defer></script>
+    <script src="/assets/js/cpp-syntax-highlighting.js" defer></script>
+    
+  </head>
+  <body class="getting-started-page">
+    <div class="site-shell">
+      <header class="site-header">
+  <div class="site-header__inner page-width">
+    <a class="brand-lockup" href="/" aria-label="Alps Alpine Development Hub home">
+      <img class="brand-lockup__logo" src="/assets/images/alps-alpine-logo.png" alt="Alps Alpine logo">
+      <span class="brand-lockup__text">
+        <span class="brand-lockup__eyebrow">North America</span>
+        <span class="brand-lockup__title">Development Hub</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="site-nav__link" href="/">Home</a>
+      <a class="site-nav__link" href="/products/">Products</a>
+      <a class="site-nav__link" href="/about/">About</a>
+      <a class="site-nav__link" href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+      <main class="site-main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="page-width page-hero section-stack">
+  <div class="guide-breadcrumb">
+    <a class="button-link button-link--secondary" href="/getting_started/">&larr; Back to Getting Started</a>
+    
+      <a class="button-link button-link--secondary" href="/products/dual-magnetic-module/">View Product Page</a>
+    
+  </div>
+
+  <div class="page-intro surface-panel">
+    <p class="eyebrow">Getting Started</p>
+    <h1>Dual Switching Magnetic Sensor Board (Qwiic)</h1>
+    <p>This guide walks through connecting the Dual Switching Magnetic Sensor Board, confirming I2C communication, and running a first pole-detection example. Use it as a starting point for evaluating the board and integrating it into a Qwiic-based prototype.</p>
+  </div>
+
+  <div class="guide-docs-layout">
+    <aside class="guide-sidebar surface-panel">
+      <p class="eyebrow">Sections</p>
+      <nav class="guide-sidebar__nav" aria-label="Guide section navigation">
+        <a href="#introduction">Introduction</a>
+        <a href="#required-materials">Required Materials</a>
+        <a href="#hardware-overview">Hardware Overview</a>
+        <a href="#hardware-hookup">Hardware Hookup</a>
+        <a href="#software-setup">Software Setup &amp; Programming</a>
+        <a href="#example-code">Example Code</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#resources">Resources &amp; Going Further</a>
+      </nav>
+    </aside>
+
+    <div class="guide-docs-content">
+      <section class="guide-docs-section surface-panel" id="introduction">
+        <div class="guide-docs-section__header">
+          <span class="guide-docs-section__index">01</span>
+          <div class="guide-docs-section__title-wrap">
+            <p class="eyebrow">Introduction</p>
+            <h2>Introduction</h2>
+          </div>
+        </div>
+
+        
+          <p class="guide-docs-section__lead">
+            The Alps Alpine Dual Switching Magnetic Sensor Board (Qwiic) reports whether a north pole, south pole, or no pole is detected. It communicates over I2C through the Qwiic Connect System and is supported by the <code>SenseKitDualSwitchingMagneticSensor</code> class in the Alps Alpine SenseKit Arduino library.
+          </p>
+
+          <div class="guide-intro-media">
+            <figure class="guide-intro-media__image">
+              <img src="/assets/images/qwiicSensorBoardsImgs/dualSwitchingMagneticSensorBoard/dualSwitchingMagBoardFlatV1.png" alt="Dual Switching Magnetic Sensor Board (Qwiic) overview image">
+            </figure>
+
+            <div class="guide-intro-media__actions">
+              <a class="button-link" href="https://www.alpsalpine.com/e/" target="_blank" rel="noreferrer">Purchase Board</a>
+            </div>
+
+            
+          </div>
+        
+      </section>
+
+      <section class="guide-docs-section surface-panel" id="required-materials">
+        <div class="guide-docs-section__header">
+          <span class="guide-docs-section__index">02</span>
+          <div class="guide-docs-section__title-wrap">
+            <p class="eyebrow">Setup Prep</p>
+            <h2>Required Materials</h2>
+          </div>
+        </div>
+
+        
+          <p class="guide-docs-section__lead">
+            To follow along with this tutorial, you will need the materials listed below. Depending on the equipment
+            you already have, you may not need every item. Review the guide and adjust your list as needed before
+            getting started.
+          </p>
+
+          <div class="guide-wishlist surface-panel surface-panel--nested">
+            <div class="guide-wishlist__header">
+              <h3>Hookup Guide Wishlist</h3>
+            </div>
+
+            <div class="guide-wishlist__list">
+              <a class="guide-wishlist__item" href="/products/dual-magnetic-module/">
+                <span class="guide-wishlist__thumb">
+                  <img src="/assets/images/qwiicSensorBoardsImgs/dualSwitchingMagneticSensorBoard/dualSwitchingMagBoardFlatV1.png" alt="Dual Switching Magnetic Sensor Board (Qwiic)">
+                </span>
+                <span class="guide-wishlist__copy">
+                  <strong>Dual Switching Magnetic Sensor Board (Qwiic)</strong>
+                  <span>The primary Alps Alpine Sensor/HMI board used throughout this hookup guide.</span>
+                </span>
+              </a>
+
+              <a class="guide-wishlist__item" href="https://www.mouser.com/en/ProductDetail/Adafruit/5384?qs=vvQtp7zwQdNfI%252BP%252B9KwkpQ%3D%3D&srsltid=AfmBOopel_yyVzEdEY5OmB2xelupcZQAq3AUzOZg6ml58WqwFoaeM6Nr" target="_blank" rel="noreferrer">
+                <span class="guide-wishlist__thumb">
+                  <img src="/assets/images/qwiic-cable-300mm.png" alt="Qwiic cable 300 mm product image">
+                </span>
+                <span class="guide-wishlist__copy">
+                  <strong>Qwiic Cable - 300 mm (or comparable)</strong>
+                  <span>P5384A</span>
+                </span>
+              </a>
+
+              
+                <a class="guide-wishlist__item" href="https://www.amazon.com/dp/B07P8VF26X" target="_blank" rel="noreferrer">
+                  <span class="guide-wishlist__thumb">
+                    <img src="/assets/images/required-materials/north-south-bar-magnets.jpg" alt="Red and blue educational bar magnets with identifiable north and south poles">
+                  </span>
+                  <span class="guide-wishlist__copy">
+                    <strong>A magnet with identifiable north and south poles</strong>
+                    <span>Example: two-pack educational bar magnets with clearly marked north and south poles. View the Amazon listing.</span>
+                  </span>
+                </a>
+              
+            </div>
+          </div>
+
+          <div class="guide-mcu-block">
+            <p class="guide-docs-section__lead">
+              The Alps Alpine Sensor/HMI Board suite enables fast, flexible prototyping with the Alps Alpine Valley
+              Development Board. For custom applications, the boards can also be easily integrated with a wide range
+              of existing microcontrollers over I²C, with an easy-to-use open-source Arduino library available to
+              simplify development.
+            </p>
+
+            <div class="guide-mcu-options">
+              <a class="guide-mcu-option" href="/products/development-kit/">
+                <span class="guide-mcu-option__media">
+                  <img src="/assets/images/valleyDevKitImgs/dkTempStandingAngle.png" alt="Alps Alpine Valley Development Board">
+                </span>
+                <span class="guide-mcu-option__copy">
+                  <strong>Alps Alpine Valley Development Board</strong>
+                  <span>Recommended evaluation platform for quick Sensor/HMI board bring-up, interface testing, and future PEAK workflow support.</span>
+                </span>
+              </a>
+
+              <div class="guide-mcu-options__divider" aria-hidden="true">OR</div>
+
+              <a class="guide-mcu-option" href="https://store-usa.arduino.cc/products/uno-q" target="_blank" rel="noreferrer">
+                <span class="guide-mcu-option__media">
+                  <img src="/assets/images/arduino-uno-q.png" alt="Arduino UNO Q development board">
+                </span>
+                <span class="guide-mcu-option__copy">
+                  <strong>Existing MCU Platform</strong>
+                  <span>Since the Sensor/HMI Board only requires I²C communication, it can be integrated with a wide range of development platforms. The Arduino UNO Q is one option for building a custom solution with the Alps Alpine Arduino library, but other Arduino-compatible boards can also be used with a built-in Qwiic connector or by breaking out the Qwiic connection to standard I²C pins.</span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div class="guide-reading">
+            <h3>Suggested Reading</h3>
+            <p>
+              If you are not already familiar with the Qwiic ecosystem, we recommend reviewing the overview before
+              moving into board hookup and software setup.
+            </p>
+
+            <a class="guide-reading__card" href="https://www.sparkfun.com/qwiic" target="_blank" rel="noreferrer">
+              <div class="guide-reading__logo-wrap">
+                <img src="/assets/images/qwiic-black.png" alt="Qwiic logo">
+              </div>
+              <span class="guide-reading__link">Qwiic Connect System</span>
+            </a>
+          </div>
+        
+      </section>
+
+      <section class="guide-docs-section surface-panel" id="hardware-overview">
+        <div class="guide-docs-section__header">
+          <span class="guide-docs-section__index">03</span>
+          <div class="guide-docs-section__title-wrap">
+            <p class="eyebrow">Board Summary</p>
+            <h2>Hardware Overview</h2>
+          </div>
+        </div>
+
+        
+          <div class="guide-docs-stack">
+            <div class="guide-subtitle-block">
+              <p class="eyebrow">Board Features</p>
+              <h3>Hardware Overview</h3>
+            </div>
+
+            <p class="guide-docs-section__lead">
+              This board is built around its primary Alps Alpine component and includes supporting features that are
+              important during setup and development. The sections below identify the key board elements, connections,
+              and configuration points to be aware of before bringing the board into your project.
+            </p>
+
+            <figure class="guide-hookup-hero">
+              <img src="/assets/images/qwiicSensorBoardsImgs/dualSwitchingMagneticSensorBoard/dualSwitchingMagBoardFlatV1.png" alt="Dual Switching Magnetic Sensor Board (Qwiic) overview image">
+            </figure>
+          </div>
+
+          <div class="guide-hookup-sections">
+            <article class="guide-hookup-card">
+              <div class="guide-hookup-card__copy">
+                <h3>Pins (SWD Programming)</h3>
+                <p>
+                  These pins provide Serial Wire Debug (SWD) access for advanced users who need to reflash or modify
+                  the firmware running on the board's onboard STM32 microcontroller. They are not required for normal
+                  Qwiic operation.
+                </p>
+                <ul class="guide-pin-list">
+                  <li><strong>3V3</strong> - 3.3 V power reference for the programming connection.</li>
+                  <li><strong>GND</strong> - Common ground reference.</li>
+                  <li><strong>SWCLK</strong> - Serial Wire Debug clock signal.</li>
+                  <li><strong>SWDIO</strong> - Serial Wire Debug data signal.</li>
+                  <li><strong>NRST</strong> - Microcontroller reset signal.</li>
+                </ul>
+              </div>
+
+              <figure class="guide-hookup-figure">
+                <img src="/assets/images/gettingStartedHighlights/dualMagSensorBoard/dualMagSWD.png" alt="Dual Switching Magnetic Sensor Board SWD programming pins">
+              </figure>
+
+              <div class="guide-warning-note">
+                <strong>Note:</strong>
+                <p>
+                  The 3V3 pin is not regulated. Use only a 3.3 V supply; applying a different voltage may damage
+                  onboard components. Reflashing or modifying the preinstalled firmware is an advanced operation
+                  performed at your own risk and may prevent the board from working with prebuilt tools or demo
+                  applications until compatible firmware is restored.
+                </p>
+              </div>
+            </article>
+
+            <article class="guide-hookup-card">
+              <div class="guide-hookup-card__copy">
+                <h3>Qwiic Connectors</h3>
+                <p>
+                  Each board includes two standard Qwiic connectors that provide power and I2C connectivity. Both
+                  connectors share the same bus, allowing compatible Qwiic devices to be daisy chained together.
+                </p>
+              </div>
+
+              <figure class="guide-hookup-figure">
+                <img src="/assets/images/gettingStartedHighlights/dualMagSensorBoard/dualMagQwiic.png" alt="Dual Switching Magnetic Sensor Board Qwiic connectors">
+              </figure>
+            </article>
+
+            <article class="guide-hookup-card">
+              <div class="guide-hookup-card__copy">
+                <h3>I2C Jumpers</h3>
+                <p>
+                  The two cuttable traces control the board's internal I2C pull-up resistors. By default, each outer
+                  pad is bridged to its center pad, enabling pull-ups on the SDA and SCL lines. Cutting the copper
+                  trace between an outer pad and its center pad removes the pull-up for that respective I2C line.
+                </p>
+              </div>
+
+              <figure class="guide-hookup-figure">
+                <img src="/assets/images/gettingStartedHighlights/dualMagSensorBoard/dualMagI2cJumpers.png" alt="Dual Switching Magnetic Sensor Board I2C jumpers">
+              </figure>
+            </article>
+
+            <article class="guide-hookup-card">
+              <div class="guide-hookup-card__copy">
+                <h3>I2C Address Pads</h3>
+                <p>
+                  Each board supports four assigned I2C addresses, selected with the two solder-jumper pads labeled
+                  ADDR1 and ADDR0. The default address is selected out of the box with both pads open. Soldering a
+                  pad sets its corresponding binary value to 1, allowing multiple identical boards to share one bus
+                  when each uses a different address selection.
+                </p>
+                <div class="guide-address-table-wrap">
+                  <table class="guide-address-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">ADDR1</th>
+                        <th scope="col">ADDR0</th>
+                        <th scope="col">Address Selection</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>0</td><td>0</td><td>Default</td></tr>
+                      <tr><td>0</td><td>1</td><td>Alternate 1</td></tr>
+                      <tr><td>1</td><td>0</td><td>Alternate 2</td></tr>
+                      <tr><td>1</td><td>1</td><td>Alternate 3</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <figure class="guide-hookup-figure">
+                <img src="/assets/images/gettingStartedHighlights/dualMagSensorBoard/dualMagI2CAddr.png" alt="Dual Switching Magnetic Sensor Board I2C address pads">
+              </figure>
+            </article>
+
+            <article class="guide-hookup-card">
+              <div class="guide-hookup-card__copy">
+                <h3>Power LED</h3>
+                <p>
+                  Each board includes a red power-indicator LED that illuminates when the 3.3 V rail is powered. Use it
+                  as a quick confirmation that the board is receiving power before continuing with I2C communication
+                  or software setup.
+                </p>
+              </div>
+
+              <figure class="guide-hookup-figure">
+                <img src="/assets/images/gettingStartedHighlights/dualMagSensorBoard/dualMagPwrLED.png" alt="Dual Switching Magnetic Sensor Board power LED">
+              </figure>
+            </article>
+
+            <article class="guide-hookup-card">
+              <div class="guide-hookup-card__copy">
+                <h3>Board Dimensions</h3>
+              </div>
+
+              <figure class="guide-hookup-figure">
+                <img src="/assets/images/module-placeholder.svg" alt="Dual Switching Magnetic Sensor Board (Qwiic) board dimensions placeholder">
+              </figure>
+            </article>
+          </div>
+        
+      </section>
+
+      <section class="guide-docs-section surface-panel" id="hardware-hookup">
+        <div class="guide-docs-section__header">
+          <span class="guide-docs-section__index">04</span>
+          <div class="guide-docs-section__title-wrap">
+            <p class="eyebrow">Connections</p>
+            <h2>Hardware Hookup</h2>
+          </div>
+        </div>
+
+        
+          <div class="guide-docs-stack">
+            <p class="guide-docs-section__lead">
+              Choose the hookup path that best fits your development workflow. The Alps Alpine Valley Development Kit
+              provides a streamlined platform for evaluating Sensor/HMI boards, while a custom solution lets you
+              connect the board to your own I2C-capable microcontroller and system architecture.
+            </p>
+
+            <div class="guide-hookup-options">
+              <article class="guide-hookup-option">
+                <div class="guide-hookup-option__header">
+                  <h3>Alps Alpine Valley Board Hookup</h3>
+                </div>
+
+                <p>
+                  Use this block to describe the recommended hookup path when pairing the Sensor/HMI board with the
+                  Alps Alpine Valley Development Kit. This is a good place for setup notes, connection order, and any
+                  validation steps that should happen before moving into software setup.
+                </p>
+
+                <figure class="guide-hookup-option__figure">
+                  <img src="/assets/images/valleyDevKitImgs/dkTempStandingAngle.png" alt="Alps Alpine Valley Development Kit">
+                </figure>
+
+                <div class="guide-info-note">
+                  <strong>Note:</strong>
+                  <p>
+                    When using the Alps Alpine Valley Development Board, continue to the
+                    <a href="/getting_started/development-kit/">Valley Development Kit getting-started guide</a>
+                    to get more detailed configuration, setup, and usage information. If using a custom solution, you
+                    can continue with this page.
+                  </p>
+                </div>
+              </article>
+
+              <article class="guide-hookup-option">
+                <div class="guide-hookup-option__header">
+                  <h3>Custom Solution Hookup</h3>
+                </div>
+
+                <p>
+                  Use this block to describe the alternative hookup path for a custom controller or embedded design.
+                  This is the right place for notes about external I2C hosts, logic-level compatibility, power-supply
+                  expectations, and any differences compared with the Valley Development Kit flow.
+                </p>
+
+                <figure class="guide-hookup-option__figure guide-hookup-option__figure--custom">
+                  <img src="/assets/images/gettingStartedHighlights/customHookups/dual-mag-connected.png" alt="Dual Switching Magnetic Sensor Board connected to a custom development platform">
+                </figure>
+              </article>
+            </div>
+          </div>
+        
+      </section>
+
+      <section class="guide-docs-section surface-panel" id="software-setup">
+        <div class="guide-docs-section__header">
+          <span class="guide-docs-section__index">05</span>
+          <div class="guide-docs-section__title-wrap">
+            <p class="eyebrow">Firmware</p>
+            <h2>Software Setup &amp; Programming</h2>
+          </div>
+        </div>
+
+        
+          <div class="guide-docs-stack">
+            <div class="guide-info-note">
+              <strong>Note:</strong>
+              <p>
+                This code/library has been written and tested on Arduino IDE version 2.3.10.
+              </p>
+              <p>
+                If this is your first time using Arduino, please review our tutorial on
+                <a href="https://learn.sparkfun.com/tutorials/installing-arduino-ide" target="_blank" rel="noreferrer">installing the Arduino IDE</a>.
+                If you have not previously installed an Arduino library, please check out our
+                <a href="https://learn.sparkfun.com/tutorials/installing-an-arduino-library" target="_blank" rel="noreferrer">installation guide</a>.
+              </p>
+            </div>
+
+            
+              <div class="guide-software-intro">
+                <p>Install this repository as an Arduino library, then open <strong>File &gt; Examples &gt; Alps Alpine SenseKit &gt; DualSwitchingMagneticSensor</strong>. Select your board and serial port, upload the sketch, and open Serial Monitor at 9600 baud.
+The example starts by calling <code class="language-plaintext highlighter-rouge">begin()</code> and <code class="language-plaintext highlighter-rouge">isConnected()</code>. It prints formatted pole detection as well as the two raw switch states.</p>
+
+              </div>
+            
+
+            <div class="guide-actions-row">
+              <a class="button-link button-link--secondary" href="https://github.com/Alps-Alpine-North-America-Inc" target="_blank" rel="noreferrer">
+                Check GitHub Repository
+              </a>
+            </div>
+
+            <div class="guide-functions-block">
+              <div class="guide-subtitle-block">
+                <h3>Arduino Library Functions</h3>
+              </div>
+
+              <p class="guide-docs-section__lead">
+                Below is a list of the functions that can be used with the Dual Switching Magnetic Sensor Board (Qwiic), along with a description of
+                what each function does and how to use it.
+              </p>
+
+              
+                <div class="guide-functions-table-wrap">
+                  <table class="guide-functions-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Function</th>
+                        <th scope="col">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr>
+                          <td><code>begin()</code></td>
+                          <td>Initializes the selected I2C bus.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td><code>isConnected()</code></td>
+                          <td>Confirms that the expected sensor board responds.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td><code>getFormattedValues(&pole)</code></td>
+                          <td>Reads NoPoleDetected, SouthPoleDetected, or NorthPoleDetected.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td><code>getRawValues(&values)</code></td>
+                          <td>Reads the individual south and north switch outputs.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td><code>getDetectedMagneticPole()</code></td>
+                          <td>Returns the formatted pole value directly.</td>
+                        </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+
+                
+
+                
+                  <div class="guide-library-note">
+                    <p>Raw switch outputs are active-low: <code class="language-plaintext highlighter-rouge">SwitchDetected</code> (<code class="language-plaintext highlighter-rouge">0</code>) means that switch detects its corresponding pole; <code class="language-plaintext highlighter-rouge">SwitchNotDetected</code> (<code class="language-plaintext highlighter-rouge">1</code>) means it does not. Always check the <code class="language-plaintext highlighter-rouge">bool</code> result of <code class="language-plaintext highlighter-rouge">getFormattedValues()</code> or <code class="language-plaintext highlighter-rouge">getRawValues()</code> before using the output.</p>
+
+                  </div>
+                
+
+                
+                  <p class="guide-docs-section__lead">To select a non-default address or I2C bus, pass them to the constructor.</p>
+                  <pre class="guide-inline-code-block"><code data-language="cpp">SenseKitDualSwitchingMagneticSensor sensor(
+  SenseKitDualSwitchingMagneticSensor::AlternateI2CAddress1, Wire1);
+</code></pre>
+                
+              
+            </div>
+
+            <div class="guide-docs-stack">
+              <p class="guide-docs-section__lead">
+                If you wish to use or learn the I2C message formats directly, you can follow the document below.
+              </p>
+
+              <div class="guide-actions-row">
+              <a class="button-link" href="/assets/documents/dual-magnetic-sensor-i2c-message-format.pdf" target="_blank" rel="noreferrer">
+                View I2C Message Format Interface Document
+              </a>
+            </div>
+
+            
+            </div>
+          </div>
+        
+      </section>
+
+      <section class="guide-docs-section surface-panel" id="example-code">
+        <div class="guide-docs-section__header">
+          <span class="guide-docs-section__index">06</span>
+          <div class="guide-docs-section__title-wrap">
+            <p class="eyebrow">Reference</p>
+            <h2>Example Code</h2>
+          </div>
+        </div>
+
+        <div class="guide-code-block-wrap">
+          <button class="guide-code-copy-button" type="button" data-copy-code aria-label="Copy example code">
+            Copy Code
+          </button>
+
+          
+            <pre class="guide-code-block"><code data-language="cpp">#include &lt;AlpsAlpineSenseKit.h&gt;
+
+SenseKitDualSwitchingMagneticSensor sensor;
+
+void setup() {
+  Serial.begin(9600);
+  delay(1000);
+  sensor.begin();
+
+  if (!sensor.isConnected()) {
+    Serial.println(&quot;Dual Switching Magnetic Sensor not found.&quot;);
+    while (true) {}
+  }
+}
+
+void loop() {
+  SenseKitDualSwitchingMagneticSensor::DetectedMagneticPole pole;
+  if (sensor.getFormattedValues(&amp;pole)) {
+    if (pole == SenseKitDualSwitchingMagneticSensor::SouthPoleDetected) {
+      Serial.println(&quot;South pole detected&quot;);
+    } else if (pole == SenseKitDualSwitchingMagneticSensor::NorthPoleDetected) {
+      Serial.println(&quot;North pole detected&quot;);
+    } else {
+      Serial.println(&quot;No pole detected&quot;);
+    }
+  }
+  delay(500);
+}
+</code></pre>
+          
+        </div>
+      </section>
+
+      <section class="guide-docs-section surface-panel" id="troubleshooting">
+        <div class="guide-docs-section__header">
+          <span class="guide-docs-section__index">07</span>
+          <div class="guide-docs-section__title-wrap">
+            <p class="eyebrow">Support</p>
+            <h2>Troubleshooting</h2>
+          </div>
+        </div>
+
+        
+          <div class="guide-docs-stack">
+            
+              <ul class="guide-troubleshooting-list">
+                
+                  <li>If <code>isConnected()</code> fails, check the Qwiic cable orientation, power, SDA, and SCL connections, then verify the selected I2C address.</li>
+                
+                  <li>If a pole is not detected, move the magnet closer and test the opposite magnet face. Magnetic-field strength and orientation affect the result.</li>
+                
+                  <li>If raw switch states look reversed, remember they are active-low.</li>
+                
+              </ul>
+            
+
+            <div class="guide-info-note">
+              <strong>Need Support:</strong>
+              <p>
+                If you need technical support, additional information, or something is not working as expected, please
+                head to the <a href="/contact/">contact page</a> and submit a support request.
+              </p>
+              <p>
+                If bugs or issues are found in open-source repository resources, please submit an issue on the
+                corresponding <a href="https://github.com/Alps-Alpine-North-America-Inc" target="_blank" rel="noreferrer">GitHub repository</a>.
+              </p>
+            </div>
+          </div>
+        
+      </section>
+
+      <section class="guide-docs-section surface-panel" id="resources">
+        <div class="guide-docs-section__header">
+          <span class="guide-docs-section__index">08</span>
+          <div class="guide-docs-section__title-wrap">
+            <p class="eyebrow">Links</p>
+            <h2>Resources &amp; Going Further</h2>
+          </div>
+        </div>
+
+        
+          <ul class="guide-resource-list">
+            
+              <li>
+                
+                  <a class="guide-resource-list__item" href="/products/dual-magnetic-module/">
+                
+                    <div class="guide-resource-list__copy">
+                      <span class="guide-resource-list__type">Page</span>
+                      <h3>Product Overview</h3>
+                      <p>View board specifications, supported component details, and purchasing information.</p>
+                    </div>
+                    <span class="guide-resource-list__status">Available</span>
+                
+                  </a>
+                
+              </li>
+            
+              <li>
+                
+                  <a class="guide-resource-list__item" href="https://github.com/Alps-Alpine-North-America-Inc" target="_blank" rel="noreferrer">
+                
+                    <div class="guide-resource-list__copy">
+                      <span class="guide-resource-list__type">GitHub</span>
+                      <h3>Example Code & Libraries</h3>
+                      <p>Browse the Alps Alpine public repositories for Arduino libraries and example projects.</p>
+                    </div>
+                    <span class="guide-resource-list__status">Available</span>
+                
+                  </a>
+                
+              </li>
+            
+              <li>
+                
+                  <a class="guide-resource-list__item" href="/localFileDownloads/dualMagSensorBoard/duel-mag-sensor-board-schm-v0.1-062426.pdf" target="_blank" rel="noreferrer">
+                
+                    <div class="guide-resource-list__copy">
+                      <span class="guide-resource-list__type">PDF</span>
+                      <h3>Schematic</h3>
+                      <p>Download the Dual Switching Magnetic Sensor Board schematic.</p>
+                    </div>
+                    <span class="guide-resource-list__status">Available</span>
+                
+                  </a>
+                
+              </li>
+            
+              <li>
+                
+                  <div class="guide-resource-list__item guide-resource-list__item--pending">
+                
+                    <div class="guide-resource-list__copy">
+                      <span class="guide-resource-list__type">ZIP</span>
+                      <h3>KiCad Files</h3>
+                      <p>Board design files will be provided in a future release.</p>
+                    </div>
+                    <span class="guide-resource-list__status">Coming Soon</span>
+                
+                  </div>
+                
+              </li>
+            
+              <li>
+                
+                  <div class="guide-resource-list__item guide-resource-list__item--pending">
+                
+                    <div class="guide-resource-list__copy">
+                      <span class="guide-resource-list__type">PNG</span>
+                      <h3>Board Dimensions</h3>
+                      <p>A board-dimensions drawing will be added when the image is available.</p>
+                    </div>
+                    <span class="guide-resource-list__status">Coming Soon</span>
+                
+                  </div>
+                
+              </li>
+            
+          </ul>
+        
+      </section>
+    </div>
+  </div>
+</section>
+
+      </main>
+      <footer class="site-footer">
+  <div class="site-footer__inner page-width">
+    <div class="site-footer__top">
+      <div class="site-footer__links site-footer__links--external">
+        <a class="site-footer__link-with-icon" href="https://github.com/Alps-Alpine-North-America-Inc" target="_blank" rel="noreferrer">
+          <svg class="site-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.09 3.3 9.4 7.87 10.92.58.11.79-.25.79-.56 0-.27-.01-1.18-.02-2.14-3.2.69-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.35.96.1-.75.4-1.26.72-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .97-.31 3.17 1.18a10.95 10.95 0 0 1 5.77 0c2.19-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.42.36.78 1.05.78 2.13 0 1.54-.01 2.79-.01 3.17 0 .31.2.68.8.56a11.53 11.53 0 0 0 7.86-10.92C23.5 5.66 18.35.5 12 .5Z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a class="site-footer__link-with-icon" href="https://www.alpsalpine.com/e/" target="_blank" rel="noreferrer">
+          <svg class="site-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 2.25a9.75 9.75 0 1 0 0 19.5 9.75 9.75 0 0 0 0-19.5Zm6.93 8.63h-3.07a15.7 15.7 0 0 0-1.2-4.22 8.3 8.3 0 0 1 3.27 4.22Zm-6.18-5.1c.63.71 1.54 2.56 1.95 5.1h-5.4c.41-2.54 1.32-4.39 1.95-5.1.24-.27.49-.41.75-.41s.51.14.75.41ZM4.95 13.13h3.04c.1 1.5.38 2.94.82 4.22a8.3 8.3 0 0 1-3.86-4.22Zm0-2.25a8.3 8.3 0 0 1 3.86-4.22c-.44 1.28-.72 2.72-.82 4.22H4.95Zm5.29 2.25h3.52c-.09 1.35-.35 2.67-.76 3.86-.46 1.35-1.01 2.17-1.24 2.44-.23-.27-.78-1.09-1.24-2.44a13.4 13.4 0 0 1-.76-3.86Zm0-2.25c.09-1.35.35-2.67.76-3.86.46-1.35 1.01-2.17 1.24-2.44.23.27.78 1.09 1.24 2.44.41 1.19.67 2.51.76 3.86h-3.52Zm3.95 6.47c.44-1.28.72-2.72.82-4.22h3.04a8.3 8.3 0 0 1-3.86 4.22Zm.82-6.47a15.7 15.7 0 0 0-1.2-4.22 8.3 8.3 0 0 1 3.27 4.22h-2.07Z"/>
+          </svg>
+          <span>Company Website</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="site-footer__divider" aria-hidden="true"></div>
+
+    <div class="site-footer__bottom">
+      <div class="site-footer__brand">
+        <span class="site-footer__logo-wrap">
+          <img class="site-footer__logo" src="/assets/images/alps-alpine-logo.png" alt="Alps Alpine logo">
+        </span>
+        <p class="site-footer__title">Alps Alpine North America, Inc.</p>
+      </div>
+
+      <div class="site-footer__legal">
+        <span>Copyright (c) 2026 Alps Alpine North America, Inc.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </body>
+</html>

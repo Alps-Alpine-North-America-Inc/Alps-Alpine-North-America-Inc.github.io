@@ -1,0 +1,23 @@
+<svg width="960" height="700" viewBox="0 0 960 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="700" rx="36" fill="url(#bg)"/>
+  <rect x="128" y="132" width="704" height="436" rx="34" fill="rgba(255,255,255,0.76)" stroke="rgba(255,255,255,0.88)" stroke-width="10"/>
+  <rect x="212" y="216" width="536" height="210" rx="24" fill="url(#panel)"/>
+  <circle cx="278" cy="506" r="26" fill="#003399"/>
+  <circle cx="378" cy="506" r="26" fill="#4D85EF"/>
+  <circle cx="478" cy="506" r="26" fill="#9BBEFF"/>
+  <rect x="566" y="482" width="128" height="48" rx="24" fill="#003399"/>
+  <path d="M292 268H668" stroke="white" stroke-width="10" stroke-linecap="round"/>
+  <path d="M292 320H610" stroke="#D8E8FF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M292 372H560" stroke="#D8E8FF" stroke-width="10" stroke-linecap="round"/>
+  <text x="278" y="178" fill="#003399" font-family="Avenir Next, sans-serif" font-size="30" font-weight="700">Development Kit Placeholder</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C2D7A"/>
+      <stop offset="1" stop-color="#7AA8FF"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="212" y1="216" x2="748" y2="426" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#003399"/>
+      <stop offset="1" stop-color="#5D93FF"/>
+    </linearGradient>
+  </defs>
+</svg>

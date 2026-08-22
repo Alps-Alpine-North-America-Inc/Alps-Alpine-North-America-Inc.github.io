@@ -1,0 +1,35 @@
+<svg width="1600" height="920" viewBox="0 0 1600 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="920" rx="44" fill="url(#bg)"/>
+  <circle cx="1328" cy="198" r="224" fill="url(#glow1)" fill-opacity="0.7"/>
+  <circle cx="214" cy="738" r="250" fill="url(#glow2)" fill-opacity="0.62"/>
+  <path d="M188 292H542L654 408H930L1064 278H1398" stroke="rgba(255,255,255,0.66)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M312 626H612L748 516H1096L1220 622H1408" stroke="rgba(255,255,255,0.56)" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="188" cy="292" r="18" fill="#F7FBFF"/>
+  <circle cx="930" cy="408" r="18" fill="#F7FBFF"/>
+  <circle cx="1398" cy="278" r="18" fill="#D9E8FF"/>
+  <circle cx="312" cy="626" r="18" fill="#D9E8FF"/>
+  <circle cx="1408" cy="622" r="18" fill="#F7FBFF"/>
+  <rect x="158" y="158" width="396" height="190" rx="30" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.22)" stroke-width="3"/>
+  <rect x="1046" y="514" width="392" height="172" rx="28" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.22)" stroke-width="3"/>
+  <rect x="560" y="132" width="470" height="92" rx="24" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.24)" stroke-width="3"/>
+  <text x="356" y="228" text-anchor="middle" fill="white" font-family="Avenir Next, sans-serif" font-size="36" font-weight="700">North America</text>
+  <text x="356" y="276" text-anchor="middle" fill="#D7E6FF" font-family="Avenir Next, sans-serif" font-size="22">company overview</text>
+  <text x="1242" y="580" text-anchor="middle" fill="white" font-family="Avenir Next, sans-serif" font-size="34" font-weight="700">Development</text>
+  <text x="1242" y="626" text-anchor="middle" fill="#D7E6FF" font-family="Avenir Next, sans-serif" font-size="22">kits, modules, and tools</text>
+  <text x="795" y="190" text-anchor="middle" fill="white" font-family="Avenir Next, sans-serif" font-size="30" font-weight="700">Connected product support</text>
+  <defs>
+    <linearGradient id="bg" x1="48" y1="48" x2="1546" y2="868" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A2D7B"/>
+      <stop offset="0.52" stop-color="#1D53BF"/>
+      <stop offset="1" stop-color="#7BA9FF"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1328 198) rotate(90) scale(224)">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(214 738) rotate(90) scale(250)">
+      <stop stop-color="#D7E6FF"/>
+      <stop offset="1" stop-color="#D7E6FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

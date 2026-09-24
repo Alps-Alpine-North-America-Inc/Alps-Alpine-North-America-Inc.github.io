@@ -122,6 +122,17 @@ img {
   min-height: 100vh;
 }
 
+html[lang=ja] body {
+  font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+}
+
+html[lang=ja] h1,
+html[lang=ja] h2,
+html[lang=ja] h3,
+html[lang=ja] .brand-lockup__title {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -197,6 +208,102 @@ img {
   background: var(--brand-blue);
   color: #ffffff;
   box-shadow: var(--shadow-sm);
+}
+
+.language-switcher {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.language-switcher__button,
+.language-switcher__option {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.language-switcher__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.62rem 0.68rem;
+  border: 1px solid rgba(0, 51, 153, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--brand-blue);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.language-switcher__icon {
+  width: 1.08rem;
+  height: 1.08rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.language-switcher__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.language-switcher__button:hover,
+.language-switcher__button:focus-visible {
+  background: #ffffff;
+}
+
+.language-switcher__chevron {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-0.15rem);
+  transition: transform var(--transition);
+}
+
+.language-switcher__button[aria-expanded=true] .language-switcher__chevron {
+  transform: rotate(225deg) translate(-0.05rem, -0.1rem);
+}
+
+.language-switcher__menu {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  z-index: 30;
+  display: grid;
+  min-width: 8.25rem;
+  padding: 0.35rem;
+  border: 1px solid rgba(0, 51, 153, 0.14);
+  border-radius: 0.85rem;
+  background: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+
+.language-switcher__menu[hidden] {
+  display: none;
+}
+
+.language-switcher__option {
+  padding: 0.58rem 0.7rem;
+  border-radius: 0.55rem;
+  background: transparent;
+  color: var(--ink-strong);
+  text-align: left;
+}
+
+.language-switcher__option:hover,
+.language-switcher__option:focus-visible,
+.language-switcher__option[aria-current=true] {
+  background: rgba(0, 51, 153, 0.08);
+  color: var(--brand-blue);
 }
 
 .site-main {
@@ -768,6 +875,10 @@ img {
 .guide-card__media img.guide-card__image--large-kit {
   width: 118%;
   height: 118%;
+}
+
+.guide-card__media--bundle-photo {
+  background: transparent;
 }
 
 .guide-card__body {
@@ -1447,6 +1558,14 @@ a.guide-link-card:focus-visible {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(0, 51, 153, 0.08);
   box-shadow: var(--shadow-sm);
+}
+
+.guide-hookup-card--dimensions {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.guide-hookup-card--dimensions .guide-hookup-figure {
+  width: 100%;
 }
 
 .guide-hookup-card__copy {
@@ -3128,6 +3247,9 @@ a.product-detail-page__kit-item:focus-visible {
   }
   .site-nav {
     justify-content: center;
+  }
+  .language-switcher {
+    align-self: center;
   }
   .hero {
     min-height: auto;

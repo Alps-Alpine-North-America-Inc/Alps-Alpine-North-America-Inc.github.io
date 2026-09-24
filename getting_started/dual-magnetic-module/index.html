@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-language="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +14,12 @@
       content="Placeholder getting-started page for the Dual Switching Magnetic Sensor Board."
     >
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/language-switcher.js" defer></script>
     <script src="/assets/js/code-copy.js" defer></script>
     <script src="/assets/js/cpp-syntax-highlighting.js" defer></script>
     
   </head>
-  <body class="getting-started-page">
+  <body class="getting-started-page" data-language="en">
     <div class="site-shell">
       <header class="site-header">
   <div class="site-header__inner page-width">
@@ -36,6 +37,21 @@
       <a class="site-nav__link" href="/about/">About</a>
       <a class="site-nav__link" href="/contact/">Contact</a>
     </nav>
+
+    <div class="language-switcher" data-language-switcher>
+      <button class="language-switcher__button" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Choose language" data-language-toggle>
+        <svg class="language-switcher__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5"></circle>
+          <path d="M3.5 12h17M12 3.5c2.25 2.32 3.38 5.15 3.38 8.5S14.25 18.18 12 20.5C9.75 18.18 8.62 15.35 8.62 12S9.75 5.82 12 3.5Z"></path>
+        </svg>
+        <span class="language-switcher__label" data-language-current>English</span>
+        <span class="language-switcher__chevron" aria-hidden="true"></span>
+      </button>
+      <div class="language-switcher__menu" hidden data-language-menu>
+        <button class="language-switcher__option" type="button" data-language-option="en">English</button>
+        <button class="language-switcher__option" type="button" data-language-option="ja">日本語</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -101,7 +117,7 @@
         </div>
 
         
-          <p class="guide-docs-section__lead">
+          <p class="guide-docs-section__lead" data-guide-localized="intro">
             The Alps Alpine Dual Switching Magnetic Sensor Board (Qwiic) reports whether a north pole, south pole, or no pole is detected. It communicates over I2C through the Qwiic Connect System and is supported by the <code>SenseKitDualSwitchingMagneticSensor</code> class in the Alps Alpine SenseKit Arduino library.
           </p>
 
@@ -196,13 +212,13 @@
 
               <div class="guide-mcu-options__divider" aria-hidden="true">OR</div>
 
-              <a class="guide-mcu-option" href="https://store-usa.arduino.cc/products/uno-q" target="_blank" rel="noreferrer">
+              <a class="guide-mcu-option" href="https://store.arduino.cc/products/uno-r4-wifi" target="_blank" rel="noreferrer">
                 <span class="guide-mcu-option__media">
-                  <img src="/assets/images/arduino-uno-q.png" alt="Arduino UNO Q development board">
+                  <img src="/assets/images/arduino-uno-r4-wifi.jpg" alt="Arduino UNO R4 WiFi development board">
                 </span>
                 <span class="guide-mcu-option__copy">
                   <strong>Existing MCU Platform</strong>
-                  <span>Since the Sensor/HMI Board only requires I²C communication, it can be integrated with a wide range of development platforms. The Arduino UNO Q is one option for building a custom solution with the Alps Alpine Arduino library, but other Arduino-compatible boards can also be used with a built-in Qwiic connector or by breaking out the Qwiic connection to standard I²C pins.</span>
+                  <span>Since the Sensor/HMI Board only requires I²C communication, it can be integrated with a wide range of development platforms. The Arduino UNO R4 WiFi is one option for building a custom solution with the Alps Alpine Arduino library, but other Arduino-compatible boards can also be used with a built-in Qwiic connector or by breaking out the Qwiic connection to standard I²C pins.</span>
                 </span>
               </a>
             </div>
@@ -362,13 +378,13 @@
               </figure>
             </article>
 
-            <article class="guide-hookup-card">
+            <article class="guide-hookup-card guide-hookup-card--dimensions">
               <div class="guide-hookup-card__copy">
                 <h3>Board Dimensions</h3>
               </div>
 
               <figure class="guide-hookup-figure">
-                <img src="/assets/images/module-placeholder.svg" alt="Dual Switching Magnetic Sensor Board (Qwiic) board dimensions placeholder">
+                <img src="/assets/images/gettingStartedHighlights/boardDimensions/dual-magnetic-sensor-board-dimensions.png" alt="Dual Switching Magnetic Sensor Board dimensions drawing">
               </figure>
             </article>
           </div>
@@ -412,7 +428,7 @@
                   <strong>Note:</strong>
                   <p>
                     When using the Alps Alpine Valley Development Board, continue to the
-                    <a href="/getting_started/development-kit/">Valley Development Kit getting-started guide</a>
+                    <a href="/assets/documents/alps-alpine-valley-getting-started-setup-guide.pdf" target="_blank" rel="noreferrer">Valley Development Kit getting-started and setup guide</a>
                     to get more detailed configuration, setup, and usage information. If using a custom solution, you
                     can continue with this page.
                   </p>
@@ -464,9 +480,9 @@
             </div>
 
             
-              <div class="guide-software-intro">
+              <div class="guide-software-intro" data-guide-localized="software-intro">
                 <p>Install this repository as an Arduino library, then open <strong>File &gt; Examples &gt; Alps Alpine SenseKit &gt; DualSwitchingMagneticSensor</strong>. Select your board and serial port, upload the sketch, and open Serial Monitor at 9600 baud.
-The example starts by calling <code class="language-plaintext highlighter-rouge">begin()</code> and <code class="language-plaintext highlighter-rouge">isConnected()</code>. It prints formatted pole detection as well as the two raw switch states.</p>
+The linked example starts by calling <code class="language-plaintext highlighter-rouge">begin()</code> and <code class="language-plaintext highlighter-rouge">isConnected()</code>. It prints formatted pole detection as well as the two raw switch states; the shortened sketch below shows the formatted-reading path.</p>
 
               </div>
             
@@ -482,7 +498,7 @@ The example starts by calling <code class="language-plaintext highlighter-rouge"
                 <h3>Arduino Library Functions</h3>
               </div>
 
-              <p class="guide-docs-section__lead">
+              <p class="guide-docs-section__lead" data-guide-localized="functions-summary">
                 Below is a list of the functions that can be used with the Dual Switching Magnetic Sensor Board (Qwiic), along with a description of
                 what each function does and how to use it.
               </p>
@@ -496,7 +512,7 @@ The example starts by calling <code class="language-plaintext highlighter-rouge"
                         <th scope="col">Description</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody data-guide-localized="functions-table">
                       
                         <tr>
                           <td><code>begin()</code></td>
@@ -530,14 +546,14 @@ The example starts by calling <code class="language-plaintext highlighter-rouge"
                 
 
                 
-                  <div class="guide-library-note">
+                  <div class="guide-library-note" data-guide-localized="functions-note">
                     <p>Raw switch outputs are active-low: <code class="language-plaintext highlighter-rouge">SwitchDetected</code> (<code class="language-plaintext highlighter-rouge">0</code>) means that switch detects its corresponding pole; <code class="language-plaintext highlighter-rouge">SwitchNotDetected</code> (<code class="language-plaintext highlighter-rouge">1</code>) means it does not. Always check the <code class="language-plaintext highlighter-rouge">bool</code> result of <code class="language-plaintext highlighter-rouge">getFormattedValues()</code> or <code class="language-plaintext highlighter-rouge">getRawValues()</code> before using the output.</p>
 
                   </div>
                 
 
                 
-                  <p class="guide-docs-section__lead">To select a non-default address or I2C bus, pass them to the constructor.</p>
+                  <p class="guide-docs-section__lead" data-guide-localized="constructor-lead">To select a non-default address or I2C bus, pass them to the constructor.</p>
                   <pre class="guide-inline-code-block"><code data-language="cpp">SenseKitDualSwitchingMagneticSensor sensor(
   SenseKitDualSwitchingMagneticSensor::AlternateI2CAddress1, Wire1);
 </code></pre>
@@ -622,7 +638,7 @@ void loop() {
         
           <div class="guide-docs-stack">
             
-              <ul class="guide-troubleshooting-list">
+              <ul class="guide-troubleshooting-list" data-guide-localized="troubleshooting">
                 
                   <li>If <code>isConnected()</code> fails, check the Qwiic cable orientation, power, SDA, and SCL connections, then verify the selected I2C address.</li>
                 
@@ -669,7 +685,7 @@ void loop() {
                       <h3>Product Overview</h3>
                       <p>View board specifications, supported component details, and purchasing information.</p>
                     </div>
-                    <span class="guide-resource-list__status">Available</span>
+                    
                 
                   </a>
                 
@@ -684,7 +700,7 @@ void loop() {
                       <h3>Example Code & Libraries</h3>
                       <p>Browse the Alps Alpine public repositories for Arduino libraries and example projects.</p>
                     </div>
-                    <span class="guide-resource-list__status">Available</span>
+                    
                 
                   </a>
                 
@@ -699,7 +715,7 @@ void loop() {
                       <h3>Schematic</h3>
                       <p>Download the Dual Switching Magnetic Sensor Board schematic.</p>
                     </div>
-                    <span class="guide-resource-list__status">Available</span>
+                    
                 
                   </a>
                 
@@ -707,31 +723,16 @@ void loop() {
             
               <li>
                 
-                  <div class="guide-resource-list__item guide-resource-list__item--pending">
+                  <a class="guide-resource-list__item" href="/localFileDownloads/dualMagSensorBoard/dual-switching-magnetic-sensor-hardware-release.zip" download>
                 
                     <div class="guide-resource-list__copy">
                       <span class="guide-resource-list__type">ZIP</span>
-                      <h3>KiCad Files</h3>
-                      <p>Board design files will be provided in a future release.</p>
+                      <h3>Board Files (ZIP)</h3>
+                      <p>Download the open-source KiCad PCB design release, including schematic, manufacturing, mechanical, and viewable files.</p>
                     </div>
-                    <span class="guide-resource-list__status">Coming Soon</span>
+                    
                 
-                  </div>
-                
-              </li>
-            
-              <li>
-                
-                  <div class="guide-resource-list__item guide-resource-list__item--pending">
-                
-                    <div class="guide-resource-list__copy">
-                      <span class="guide-resource-list__type">PNG</span>
-                      <h3>Board Dimensions</h3>
-                      <p>A board-dimensions drawing will be added when the image is available.</p>
-                    </div>
-                    <span class="guide-resource-list__status">Coming Soon</span>
-                
-                  </div>
+                  </a>
                 
               </li>
             

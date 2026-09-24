@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  const isJapanese = () => document.documentElement.lang === "ja";
+  const messageFor = (english, japanese) => isJapanese() ? japanese : english;
+
   const setStatus = (message, state) => {
     status.textContent = message;
     status.dataset.state = state;
@@ -171,10 +174,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (submitButton) {
       submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
+      submitButton.textContent = messageFor("Sending...", "送信中...");
     }
 
-    setStatus("Submitting your inquiry...", "pending");
+    setStatus(messageFor("Submitting your inquiry...", "お問い合わせを送信しています..."), "pending");
 
     try {
       const response = await fetch(form.action, {
@@ -193,22 +196,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       form.reset();
-      setStatus("Inquiry sent successfully.", "success");
+      setStatus(messageFor("Inquiry sent successfully.", "お問い合わせを送信しました。"), "success");
       updateSubmitState();
     } catch (error) {
       const message = normalizeMessage(error.message);
 
       if (message.toLowerCase().includes("activate form")) {
-        setStatus("The FormSubmit endpoint still needs activation. Confirm the provider email once, then submit again.", "error");
+        setStatus(messageFor(
+          "The FormSubmit endpoint still needs activation. Confirm the provider email once, then submit again.",
+          "FormSubmitエンドポイントの有効化が必要です。プロバイダーから届くメールで一度確認した後、もう一度送信してください。"
+        ), "error");
       } else if (message) {
         setStatus(message, "error");
       } else {
-        setStatus("The inquiry could not be sent right now. Please try again in a moment.", "error");
+        setStatus(messageFor(
+          "The inquiry could not be sent right now. Please try again in a moment.",
+          "現在お問い合わせを送信できません。しばらくしてからもう一度お試しください。"
+        ), "error");
       }
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
-        submitButton.textContent = "Send Inquiry";
+        submitButton.textContent = messageFor("Send Inquiry", "お問い合わせを送信");
       }
     }
   });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-language="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +14,12 @@
       content="Hidden getting-started directory for development kits, sensor boards, and future setup documentation."
     >
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/language-switcher.js" defer></script>
     <script src="/assets/js/code-copy.js" defer></script>
     <script src="/assets/js/cpp-syntax-highlighting.js" defer></script>
     
   </head>
-  <body class="getting-started-page">
+  <body class="getting-started-page" data-language="en">
     <div class="site-shell">
       <header class="site-header">
   <div class="site-header__inner page-width">
@@ -36,6 +37,21 @@
       <a class="site-nav__link" href="/about/">About</a>
       <a class="site-nav__link" href="/contact/">Contact</a>
     </nav>
+
+    <div class="language-switcher" data-language-switcher>
+      <button class="language-switcher__button" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Choose language" data-language-toggle>
+        <svg class="language-switcher__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5"></circle>
+          <path d="M3.5 12h17M12 3.5c2.25 2.32 3.38 5.15 3.38 8.5S14.25 18.18 12 20.5C9.75 18.18 8.62 15.35 8.62 12S9.75 5.82 12 3.5Z"></path>
+        </svg>
+        <span class="language-switcher__label" data-language-current>English</span>
+        <span class="language-switcher__chevron" aria-hidden="true"></span>
+      </button>
+      <div class="language-switcher__menu" hidden data-language-menu>
+        <button class="language-switcher__option" type="button" data-language-option="en">English</button>
+        <button class="language-switcher__option" type="button" data-language-option="ja">日本語</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -58,19 +74,23 @@
       
         <article class="guide-card">
           <div class="guide-card__body">
-            <h3>Alps Alpine Valley Development Kit</h3>
+            <h3>Alps Alpine Valley Development Kit / Bundles</h3>
           </div>
 
-          <a class="guide-card__media" href="/getting_started/development-kit/" aria-label="Open the Alps Alpine Valley Development Kit getting started page">
-            <img
-              class="guide-card__image--large-kit"
-              src="/assets/images/valleyDevKitImgs/dkTempStandingAngle.png"
-              alt="Placeholder image for Alps Alpine Valley Development Kit"
-            >
-          </a>
+          
+            <div class="guide-card__media guide-card__media--bundle-photo" aria-label="Alps Alpine Valley Development Kit / Bundles image">
+              <img
+                
+                src="/assets/images/valleyDevKitImgs/valley-development-kit-bundles.png"
+                alt="Placeholder image for Alps Alpine Valley Development Kit / Bundles"
+              >
+            </div>
+          
 
           <div class="guide-card__links">
-            <a class="button-link" href="/getting_started/development-kit/">Open Getting Started Guide</a>
+            
+              <a class="button-link" href="/assets/documents/alps-alpine-valley-getting-started-setup-guide.pdf" target="_blank" rel="noreferrer">Open Getting Started Guide</a>
+            
             <a class="button-link button-link--secondary" href="/products/development-kit/">Product Page</a>
           </div>
         </article>
@@ -80,16 +100,20 @@
             <h3>Dual Switching Magnetic Sensor Board (Qwiic)</h3>
           </div>
 
-          <a class="guide-card__media" href="/getting_started/dual-magnetic-module/" aria-label="Open the Dual Switching Magnetic Sensor Board (Qwiic) getting started page">
-            <img
-              
-              src="/assets/images/qwiicSensorBoardsImgs/dualSwitchingMagneticSensorBoard/dualSwitchingMagBoardFlatV1.png"
-              alt="Placeholder image for Dual Switching Magnetic Sensor Board (Qwiic)"
-            >
-          </a>
+          
+            <a class="guide-card__media" href="/getting_started/dual-magnetic-module/" aria-label="Open the Dual Switching Magnetic Sensor Board (Qwiic) getting started page">
+              <img
+                
+                src="/assets/images/qwiicSensorBoardsImgs/dualSwitchingMagneticSensorBoard/dualSwitchingMagBoardFlatV1.png"
+                alt="Placeholder image for Dual Switching Magnetic Sensor Board (Qwiic)"
+              >
+            </a>
+          
 
           <div class="guide-card__links">
-            <a class="button-link" href="/getting_started/dual-magnetic-module/">Open Getting Started Guide</a>
+            
+              <a class="button-link" href="/getting_started/dual-magnetic-module/">Open Getting Started Guide</a>
+            
             <a class="button-link button-link--secondary" href="/products/dual-magnetic-module/">Product Page</a>
           </div>
         </article>
@@ -99,16 +123,20 @@
             <h3>ThumbPointer™ HMI Board (Qwiic)</h3>
           </div>
 
-          <a class="guide-card__media" href="/getting_started/thumbpointer-module/" aria-label="Open the ThumbPointer™ HMI Board (Qwiic) getting started page">
-            <img
-              
-              src="/assets/images/qwiicSensorBoardsImgs/thumbPointerHmiBoard/thumbPointerBoardFlatV1.png"
-              alt="Placeholder image for ThumbPointer™ HMI Board (Qwiic)"
-            >
-          </a>
+          
+            <a class="guide-card__media" href="/getting_started/thumbpointer-module/" aria-label="Open the ThumbPointer™ HMI Board (Qwiic) getting started page">
+              <img
+                
+                src="/assets/images/qwiicSensorBoardsImgs/thumbPointerHmiBoard/thumbPointerBoardFlatV1.png"
+                alt="Placeholder image for ThumbPointer™ HMI Board (Qwiic)"
+              >
+            </a>
+          
 
           <div class="guide-card__links">
-            <a class="button-link" href="/getting_started/thumbpointer-module/">Open Getting Started Guide</a>
+            
+              <a class="button-link" href="/getting_started/thumbpointer-module/">Open Getting Started Guide</a>
+            
             <a class="button-link button-link--secondary" href="/products/thumbpointer-module/">Product Page</a>
           </div>
         </article>
@@ -118,16 +146,20 @@
             <h3>Force Sensor Board (Qwiic)</h3>
           </div>
 
-          <a class="guide-card__media" href="/getting_started/force-sensor-module/" aria-label="Open the Force Sensor Board (Qwiic) getting started page">
-            <img
-              
-              src="/assets/images/qwiicSensorBoardsImgs/forceSensorBoard/forceSensorBoardFlatV1.png"
-              alt="Placeholder image for Force Sensor Board (Qwiic)"
-            >
-          </a>
+          
+            <a class="guide-card__media" href="/getting_started/force-sensor-module/" aria-label="Open the Force Sensor Board (Qwiic) getting started page">
+              <img
+                
+                src="/assets/images/qwiicSensorBoardsImgs/forceSensorBoard/forceSensorBoardFlatV1.png"
+                alt="Placeholder image for Force Sensor Board (Qwiic)"
+              >
+            </a>
+          
 
           <div class="guide-card__links">
-            <a class="button-link" href="/getting_started/force-sensor-module/">Open Getting Started Guide</a>
+            
+              <a class="button-link" href="/getting_started/force-sensor-module/">Open Getting Started Guide</a>
+            
             <a class="button-link button-link--secondary" href="/products/force-sensor-module/">Product Page</a>
           </div>
         </article>
@@ -137,16 +169,20 @@
             <h3>Resistive Position Sensor Board (Qwiic)</h3>
           </div>
 
-          <a class="guide-card__media" href="/getting_started/resistive-position-sensor-module/" aria-label="Open the Resistive Position Sensor Board (Qwiic) getting started page">
-            <img
-              
-              src="/assets/images/module-placeholder.svg"
-              alt="Placeholder image for Resistive Position Sensor Board (Qwiic)"
-            >
-          </a>
+          
+            <a class="guide-card__media" href="/getting_started/resistive-position-sensor-module/" aria-label="Open the Resistive Position Sensor Board (Qwiic) getting started page">
+              <img
+                
+                src="/assets/images/qwiicSensorBoardsImgs/resistivePositionSensorBoard/resistivePositionSensorBoardFlatV1Combo.png"
+                alt="Placeholder image for Resistive Position Sensor Board (Qwiic)"
+              >
+            </a>
+          
 
           <div class="guide-card__links">
-            <a class="button-link" href="/getting_started/resistive-position-sensor-module/">Open Getting Started Guide</a>
+            
+              <a class="button-link" href="/getting_started/resistive-position-sensor-module/">Open Getting Started Guide</a>
+            
             <a class="button-link button-link--secondary" href="/products/resistive-position-sensor-module/">Product Page</a>
           </div>
         </article>

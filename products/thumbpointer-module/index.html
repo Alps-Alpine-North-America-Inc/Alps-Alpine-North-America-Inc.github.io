@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-language="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,7 @@
       content="Detail page for the ThumbPointer™ HMI Board (Qwiic) built around Alps Alpine RKJXV122400R."
     >
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/language-switcher.js" defer></script>
     <script src="/assets/js/code-copy.js" defer></script>
     <script src="/assets/js/cpp-syntax-highlighting.js" defer></script>
     
@@ -23,7 +24,7 @@
       
     
   </head>
-  <body class="product-detail-view">
+  <body class="product-detail-view" data-language="en">
     <div class="site-shell">
       <header class="site-header">
   <div class="site-header__inner page-width">
@@ -41,6 +42,21 @@
       <a class="site-nav__link" href="/about/">About</a>
       <a class="site-nav__link" href="/contact/">Contact</a>
     </nav>
+
+    <div class="language-switcher" data-language-switcher>
+      <button class="language-switcher__button" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Choose language" data-language-toggle>
+        <svg class="language-switcher__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5"></circle>
+          <path d="M3.5 12h17M12 3.5c2.25 2.32 3.38 5.15 3.38 8.5S14.25 18.18 12 20.5C9.75 18.18 8.62 15.35 8.62 12S9.75 5.82 12 3.5Z"></path>
+        </svg>
+        <span class="language-switcher__label" data-language-current>English</span>
+        <span class="language-switcher__chevron" aria-hidden="true"></span>
+      </button>
+      <div class="language-switcher__menu" hidden data-language-menu>
+        <button class="language-switcher__option" type="button" data-language-option="en">English</button>
+        <button class="language-switcher__option" type="button" data-language-option="ja">日本語</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -239,6 +255,18 @@
               
             </li>
           
+            <li>
+              
+                <a href="/localFileDownloads/thumbPointerHmiBoard/thumbpointer-knob.stl" download>3D-Printed Knob STL</a>
+              
+            </li>
+          
+            <li>
+              
+                <a href="/localFileDownloads/thumbPointerHmiBoard/thumbpointer-hardware-release.zip" download>Board Files (ZIP)</a>
+              
+            </li>
+          
         </ul>
       </div>
 
@@ -395,6 +423,22 @@
             <span class="product-detail-page__doc-source">Product Document</span>
             <h3>Schematic</h3>
             <p>Schematic documentation of for the Alps Alpine ThumbPointer™ HMI Board (Qwiic).</p>
+          </a>
+        
+      
+        
+          <a class="product-detail-page__doc-card" href="/localFileDownloads/thumbPointerHmiBoard/thumbpointer-knob.stl" download>
+            <span class="product-detail-page__doc-source">3D Print File</span>
+            <h3>3D-Printed Knob STL</h3>
+            <p>Download the STL file for the ThumbPointer™ knob accessory.</p>
+          </a>
+        
+      
+        
+          <a class="product-detail-page__doc-card" href="/localFileDownloads/thumbPointerHmiBoard/thumbpointer-hardware-release.zip" download>
+            <span class="product-detail-page__doc-source">KiCad PCB</span>
+            <h3>Board Files (ZIP)</h3>
+            <p>Download the open-source KiCad PCB design release, including schematic, manufacturing, mechanical, and viewable files.</p>
           </a>
         
       

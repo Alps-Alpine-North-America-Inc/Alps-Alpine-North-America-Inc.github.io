@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-language="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +14,12 @@
       content="Placeholder getting-started page for the Force Sensor Board."
     >
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/language-switcher.js" defer></script>
     <script src="/assets/js/code-copy.js" defer></script>
     <script src="/assets/js/cpp-syntax-highlighting.js" defer></script>
     
   </head>
-  <body class="getting-started-page">
+  <body class="getting-started-page" data-language="en">
     <div class="site-shell">
       <header class="site-header">
   <div class="site-header__inner page-width">
@@ -36,6 +37,21 @@
       <a class="site-nav__link" href="/about/">About</a>
       <a class="site-nav__link" href="/contact/">Contact</a>
     </nav>
+
+    <div class="language-switcher" data-language-switcher>
+      <button class="language-switcher__button" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Choose language" data-language-toggle>
+        <svg class="language-switcher__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5"></circle>
+          <path d="M3.5 12h17M12 3.5c2.25 2.32 3.38 5.15 3.38 8.5S14.25 18.18 12 20.5C9.75 18.18 8.62 15.35 8.62 12S9.75 5.82 12 3.5Z"></path>
+        </svg>
+        <span class="language-switcher__label" data-language-current>English</span>
+        <span class="language-switcher__chevron" aria-hidden="true"></span>
+      </button>
+      <div class="language-switcher__menu" hidden data-language-menu>
+        <button class="language-switcher__option" type="button" data-language-option="en">English</button>
+        <button class="language-switcher__option" type="button" data-language-option="ja">日本語</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -101,8 +117,8 @@
         </div>
 
         
-          <p class="guide-docs-section__lead">
-            The Alps Alpine Force Sensor Board (Qwiic) reads applied force over I2C. <code>SenseKitForceSensor</code> provides calibrated force in newtons, the underlying amplified differential voltage, and zero/span calibration controls.
+          <p class="guide-docs-section__lead" data-guide-localized="intro">
+            The Alps Alpine Force Sensor Board (Qwiic) reports calibrated applied force in newtons and its underlying amplified differential voltage. It communicates over I2C through the Qwiic Connect System and is supported by the <code>SenseKitForceSensor</code> class in the Alps Alpine SenseKit Arduino library. The class also provides zero and span calibration controls.
           </p>
 
           <div class="guide-intro-media">
@@ -196,13 +212,13 @@
 
               <div class="guide-mcu-options__divider" aria-hidden="true">OR</div>
 
-              <a class="guide-mcu-option" href="https://store-usa.arduino.cc/products/uno-q" target="_blank" rel="noreferrer">
+              <a class="guide-mcu-option" href="https://store.arduino.cc/products/uno-r4-wifi" target="_blank" rel="noreferrer">
                 <span class="guide-mcu-option__media">
-                  <img src="/assets/images/arduino-uno-q.png" alt="Arduino UNO Q development board">
+                  <img src="/assets/images/arduino-uno-r4-wifi.jpg" alt="Arduino UNO R4 WiFi development board">
                 </span>
                 <span class="guide-mcu-option__copy">
                   <strong>Existing MCU Platform</strong>
-                  <span>Since the Sensor/HMI Board only requires I²C communication, it can be integrated with a wide range of development platforms. The Arduino UNO Q is one option for building a custom solution with the Alps Alpine Arduino library, but other Arduino-compatible boards can also be used with a built-in Qwiic connector or by breaking out the Qwiic connection to standard I²C pins.</span>
+                  <span>Since the Sensor/HMI Board only requires I²C communication, it can be integrated with a wide range of development platforms. The Arduino UNO R4 WiFi is one option for building a custom solution with the Alps Alpine Arduino library, but other Arduino-compatible boards can also be used with a built-in Qwiic connector or by breaking out the Qwiic connection to standard I²C pins.</span>
                 </span>
               </a>
             </div>
@@ -362,13 +378,13 @@
               </figure>
             </article>
 
-            <article class="guide-hookup-card">
+            <article class="guide-hookup-card guide-hookup-card--dimensions">
               <div class="guide-hookup-card__copy">
                 <h3>Board Dimensions</h3>
               </div>
 
               <figure class="guide-hookup-figure">
-                <img src="/assets/images/module-placeholder.svg" alt="Force Sensor Board (Qwiic) board dimensions placeholder">
+                <img src="/assets/images/gettingStartedHighlights/boardDimensions/force-sensor-board-dimensions.png" alt="Force Sensor Board dimensions drawing">
               </figure>
             </article>
           </div>
@@ -412,7 +428,7 @@
                   <strong>Note:</strong>
                   <p>
                     When using the Alps Alpine Valley Development Board, continue to the
-                    <a href="/getting_started/development-kit/">Valley Development Kit getting-started guide</a>
+                    <a href="/assets/documents/alps-alpine-valley-getting-started-setup-guide.pdf" target="_blank" rel="noreferrer">Valley Development Kit getting-started and setup guide</a>
                     to get more detailed configuration, setup, and usage information. If using a custom solution, you
                     can continue with this page.
                   </p>
@@ -464,8 +480,12 @@
             </div>
 
             
-              <div class="guide-software-intro">
-                <p>Install this repository as an Arduino library. The <strong>ForceSensor</strong> example reads calibrated newtons and raw amplifier voltage. The <strong>ForceSensorCalibration</strong> example guides you through zero and span calibration at 9600 baud.</p>
+              <div class="guide-software-intro" data-guide-localized="software-intro">
+                <p>Install this repository as an Arduino library, then open <strong>File &gt; Examples &gt; Alps Alpine SenseKit &gt; ForceSensor</strong>. Select your board and serial port, upload the sketch, and open Serial Monitor at 9600 baud.</p>
+
+<p>The basic example starts by calling <code class="language-plaintext highlighter-rouge">begin()</code> and <code class="language-plaintext highlighter-rouge">isConnected()</code>. It prints formatted force in newtons as well as the raw amplifier voltage. The shortened sketch below shows the formatted-reading path.</p>
+
+<p>For the interactive zero and span calibration workflow, open <strong>File &gt; Examples &gt; Alps Alpine SenseKit &gt; ForceSensorCalibration</strong>. This example prompts for a known mass in grams, converts it to newtons, and prints the resulting calibration values.</p>
 
               </div>
             
@@ -481,7 +501,7 @@
                 <h3>Arduino Library Functions</h3>
               </div>
 
-              <p class="guide-docs-section__lead">
+              <p class="guide-docs-section__lead" data-guide-localized="functions-summary">
                 Below is a list of the functions that can be used with the Force Sensor Board (Qwiic), along with a description of
                 what each function does and how to use it.
               </p>
@@ -495,7 +515,7 @@
                         <th scope="col">Description</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody data-guide-localized="functions-table">
                       
                         <tr>
                           <td><code>getFormattedValues(&forceN)</code></td>
@@ -534,7 +554,7 @@
                 
 
                 
-                  <div class="guide-library-note">
+                  <div class="guide-library-note" data-guide-localized="functions-note">
                     <p>Check every read or operation return value. After zero, span, or set-calibration operations, wait for <code class="language-plaintext highlighter-rouge">getDataReady()</code> to return <code class="language-plaintext highlighter-rouge">0x01</code> before making another request.</p>
 
                   </div>
@@ -560,7 +580,7 @@
                 <div class="guide-subtitle-block">
                   <h3>Component Calibration</h3>
                 </div>
-                <div class="guide-component-calibration__content">
+                <div class="guide-component-calibration__content" data-guide-localized="calibration">
                   <p>Perform zero calibration with the sensor unloaded and stationary. Wait until <code class="language-plaintext highlighter-rouge">getDataReady()</code> returns <code class="language-plaintext highlighter-rouge">0x01</code>, then apply a steady known load and call <code class="language-plaintext highlighter-rouge">performSpanCalibration(knownForceN)</code>. The recommended span-calibration force is 7 N to 10 N, approximately 714 g to 1020 g. Convert a mass in grams to newtons with:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">knownForceN</span> <span class="o">=</span> <span class="n">massGrams</span> <span class="o">*</span> <span class="mf">0.00980665f</span><span class="p">;</span>
@@ -605,10 +625,6 @@ void setup() {
     while (true) {}
   }
 
-  uint8_t ready = 0;
-  while (!sensor.getDataReady(&amp;ready) || ready == 0) {
-    delay(100);
-  }
 }
 
 void loop() {
@@ -636,7 +652,7 @@ void loop() {
         
           <div class="guide-docs-stack">
             
-              <ul class="guide-troubleshooting-list">
+              <ul class="guide-troubleshooting-list" data-guide-localized="troubleshooting">
                 
                   <li>If the sensor is not found, verify the cable, I2C wiring, power, and address (<code>0x74</code> by default).</li>
                 
@@ -685,7 +701,7 @@ void loop() {
                       <h3>Product Overview</h3>
                       <p>View board specifications, supported component details, and purchasing information.</p>
                     </div>
-                    <span class="guide-resource-list__status">Available</span>
+                    
                 
                   </a>
                 
@@ -700,7 +716,7 @@ void loop() {
                       <h3>Example Code & Libraries</h3>
                       <p>Browse the Alps Alpine public repositories for Arduino libraries and example projects.</p>
                     </div>
-                    <span class="guide-resource-list__status">Available</span>
+                    
                 
                   </a>
                 
@@ -715,7 +731,7 @@ void loop() {
                       <h3>Schematic</h3>
                       <p>Download the Force Sensor Board schematic.</p>
                     </div>
-                    <span class="guide-resource-list__status">Available</span>
+                    
                 
                   </a>
                 
@@ -723,31 +739,16 @@ void loop() {
             
               <li>
                 
-                  <div class="guide-resource-list__item guide-resource-list__item--pending">
+                  <a class="guide-resource-list__item" href="/localFileDownloads/forceSensorBoard/force-sensor-hardware-release.zip" download>
                 
                     <div class="guide-resource-list__copy">
                       <span class="guide-resource-list__type">ZIP</span>
-                      <h3>KiCad Files</h3>
-                      <p>Board design files will be provided in a future release.</p>
+                      <h3>Board Files (ZIP)</h3>
+                      <p>Download the open-source KiCad PCB design release, including schematic, manufacturing, mechanical, and viewable files.</p>
                     </div>
-                    <span class="guide-resource-list__status">Coming Soon</span>
+                    
                 
-                  </div>
-                
-              </li>
-            
-              <li>
-                
-                  <div class="guide-resource-list__item guide-resource-list__item--pending">
-                
-                    <div class="guide-resource-list__copy">
-                      <span class="guide-resource-list__type">PNG</span>
-                      <h3>Board Dimensions</h3>
-                      <p>A board-dimensions drawing will be added when the image is available.</p>
-                    </div>
-                    <span class="guide-resource-list__status">Coming Soon</span>
-                
-                  </div>
+                  </a>
                 
               </li>
             

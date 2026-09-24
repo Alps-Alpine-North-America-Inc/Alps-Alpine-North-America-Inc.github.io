@@ -33,6 +33,7 @@ async function copyText(text) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const copyButtons = document.querySelectorAll("[data-copy-code]");
+  const isJapanese = () => document.documentElement.lang === "ja";
 
   copyButtons.forEach((button) => {
     button.addEventListener("click", async () => {
@@ -48,9 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const copied = await copyText(codeText);
-        button.textContent = copied ? "Copied" : "Copy Failed";
+        button.textContent = copied
+          ? (isJapanese() ? "コピーしました" : "Copied")
+          : (isJapanese() ? "コピーに失敗しました" : "Copy Failed");
       } catch {
-        button.textContent = "Copy Failed";
+        button.textContent = isJapanese() ? "コピーに失敗しました" : "Copy Failed";
       }
 
       window.setTimeout(() => {

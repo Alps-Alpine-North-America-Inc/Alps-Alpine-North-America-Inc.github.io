@@ -123,14 +123,14 @@ img {
 }
 
 html[lang=ja] body {
-  font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Hiragino Sans", "Yu Gothic", sans-serif;
 }
 
 html[lang=ja] h1,
 html[lang=ja] h2,
 html[lang=ja] h3,
 html[lang=ja] .brand-lockup__title {
-  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Hiragino Sans", "Yu Gothic", sans-serif;
 }
 
 .site-header {
